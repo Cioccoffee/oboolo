@@ -71,8 +71,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/prevention_insa_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  Alerte de sécurité - Soyez Vigilants ! \nDes fraudeurs tentent d'obtenir des informations confidentielles par tous les moyens (mail, faux site de l'INSA, etc...). \nAssurez vous d'être sur le serveur d'authentification INSA Lyon avant de saisir vos identifiants. \nPour des raisons de sécurité, veuillez vous déconnecter et fermer votre navigateur lorsque vous avez fini d'accéder aux services authentifiés." />
 
         </LinearLayout>
     </ScrollView>
+
+
 </LinearLayout>
