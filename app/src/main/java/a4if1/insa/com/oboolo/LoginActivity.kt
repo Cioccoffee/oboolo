@@ -265,7 +265,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         override fun onPostExecute(success: Boolean?) {
             mAuthTask = null
             showProgress(false)
-            startActivity(Intent(applicationContext, DayPlanningActivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             if (success!!) {
                 finish()
             } else {
