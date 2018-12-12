@@ -10,19 +10,29 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                message.setText(R.string.title_home)
-                val fragment = DayPlanningFragment()
-                addFragment(fragment)
+            R.id.navigation_add_event -> {
+                message.setText(R.string.title_add_event)
+                /*val fragment = AddEventFragment()
+                addFragment(fragment)*/
                 //return true
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+            R.id.navigation_day_planning -> {
+                message.setText(R.string.title_day_planning)
+                val fragment = DayPlanningFragment()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+            R.id.navigation_week_planning -> {
+                message.setText(R.string.title_week_planning)
+                val fragment = DayPlanningFragment()
+                addFragment(fragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_courses -> {
+                message.setText(R.string.title_courses)
+                val fragment = CoursesFragment()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
