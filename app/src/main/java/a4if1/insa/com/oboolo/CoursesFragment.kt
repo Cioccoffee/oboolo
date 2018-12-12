@@ -8,6 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
+import java.util.HashMap
+import java.util.List
+import android.widget.ExpandableListView
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,12 +33,27 @@ class CoursesFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    var listAdapter: mExpandableListAdapter? = null
+    var expListView:ExpandableListView? = null
+    var listDataHeader:List<String>? = null
+    var listDataChild:HashMap<String, List<String>>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        expListView = (R.id.lv_courses) as ExpandableListView
+
+        // preparing list data
+        //prepareListData()
+
+        //listAdapter = mExpandableListAdapter(this, listDataHeader, listDataChild)
+
+        // setting list adapter
+        //expListView.setAdapter(listAdapter)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
