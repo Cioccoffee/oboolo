@@ -265,7 +265,9 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         override fun onPostExecute(success: Boolean?) {
             mAuthTask = null
             showProgress(false)
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            intent=Intent(applicationContext, ConsultEventActivity::class.java)
+            intent.putExtra("action", "edit");
+            startActivity(intent)//FIXME : to change
             if (success!!) {
                 finish()
             } else {

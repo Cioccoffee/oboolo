@@ -30,8 +30,9 @@
             android:id="@+id/lv_courses"
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>
-
         </LinearLayout>
     </tools:ScrollView>
+
+
 
 </FrameLayout>

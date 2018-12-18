@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.design_bottom_sheet_slide_in, R.anim.design_bottom_sheet_slide_out)
-                //.replace(R.id.content, fragment, fragment.javaClass.getSimpleName())
+                //.replace(R.id.replaceFrame, fragment, fragment.javaClass.getSimpleName())
                 .addToBackStack(fragment.javaClass.getSimpleName())
                 .commit()
     }

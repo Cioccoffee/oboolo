@@ -8,7 +8,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Connexion</string>
     <string name="action_sign_in_short">Connexion</string>
     <string name="error_invalid_email">This email address is invalid</string>
@@ -18,6 +18,17 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!--Strings related to event edition-->
+    <string name="add_event">Add an event</string>
+    <string name="edit_event">Edit event</string>
+    <string name="event_date">Date</string>
+    <string name="event_beginning">Time</string>
+    <string name="event_type">Type</string>
+    <string name="event_subject">Subject</string>
+    <string name="event_frequency">Frequency</string>
+    <string name="event_validate">Confirm</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
