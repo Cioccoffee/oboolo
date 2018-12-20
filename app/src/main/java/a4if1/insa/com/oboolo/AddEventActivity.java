@@ -3,7 +3,12 @@ package a4if1.insa.com.oboolo;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,15 +26,15 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class AddEventActivity extends Activity {
-    Calendar beginCalendar;
-    Calendar endCalendar;
-    EditText editDate;
-    EditText editBeginning;
-    EditText editEnd;
-    DatePickerDialog.OnDateSetListener dateListener;
-    TimePickerDialog.OnTimeSetListener beginningTimeListener;
-    TimePickerDialog.OnTimeSetListener endTimeListener;
+public class AddEventActivity extends AppCompatActivity {
+    private Calendar beginCalendar;
+    private Calendar endCalendar;
+    private EditText editDate;
+    private EditText editBeginning;
+    private EditText editEnd;
+    private DatePickerDialog.OnDateSetListener dateListener;
+    private TimePickerDialog.OnTimeSetListener beginningTimeListener;
+    private TimePickerDialog.OnTimeSetListener endTimeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +66,41 @@ public class AddEventActivity extends Activity {
                     }
                 }
         );
+    }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu_return, menu);
+        menu.getItem(0).setOnMenuItemClickListener(
+                new MenuItem.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        finish();
+                        return true;
+                    }
+                }
+        );
+        menu.getItem(1).setOnMenuItemClickListener(
+                new MenuItem.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT);
+                        return true;
+                    }
+                }
+        );
+        menu.getItem(2).setOnMenuItemClickListener(
+                new MenuItem.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        Intent intent = new Intent(AddEventActivity.this, SettingsActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                }
+        );
+        return true;
     }
 
     /**
