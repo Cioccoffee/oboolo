@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_week_planning -> {
                 message.setText(R.string.title_week_planning)
-                val fragment = DayPlanningFragment()
+                val fragment = WeekViewPlanningFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
