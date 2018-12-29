@@ -40,7 +40,7 @@ public class WeekViewPlanningFragment extends Fragment {
     private String mParam2;
     private WeekView mWeekView;
     private com.alamkanak.weekview.WeekView.EventClickListener mEventClickListener;
-    private com.alamkanak.weekview.MonthLoader.MonthChangeListener mMonthChangeListener;
+    //private com.alamkanak.weekview.MonthLoader.MonthChangeListener mMonthChangeListener;
     private com.alamkanak.weekview.WeekView.EventLongPressListener mEventLongPressListener;
 
     private OnFragmentInteractionListener mListener;
@@ -75,11 +75,14 @@ public class WeekViewPlanningFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        /*int newYear = 2018;
+        int newMonth = 12;*/
         MonthLoader.MonthChangeListener mMonthChangeListener = new MonthLoader.MonthChangeListener() {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 // Populate the week view with some events.
-                List<WeekViewEvent> events = getEvents(newYear, newMonth);
+                //List<WeekViewEvent> events = getEvents(newYear, newMonth);
+                List<WeekViewEvent> events = getEvents(2018, 12);
                 return events;
             }
         };
@@ -114,12 +117,12 @@ public class WeekViewPlanningFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        /*if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override

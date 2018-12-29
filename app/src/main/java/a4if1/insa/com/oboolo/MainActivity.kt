@@ -11,26 +11,26 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_add_event -> {
-                message.setText(R.string.title_add_event)
-                /*val fragment = AddEventFragment()
-                addFragment(fragment)*/
+                //message.setText(R.string.title_add_event)
+                val fragment = AddEventFragment()
+                addFragment(fragment)
                 //return true
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_day_planning -> {
-                message.setText(R.string.title_day_planning)
+                //message.setText(R.string.title_day_planning)
                 val fragment = DayPlanningFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_week_planning -> {
-                message.setText(R.string.title_week_planning)
+                //message.setText(R.string.title_week_planning)
                 val fragment = WeekViewPlanningFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_courses -> {
-                message.setText(R.string.title_courses)
+                //message.setText(R.string.title_courses)
                 val fragment = CoursesFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.design_bottom_sheet_slide_in, R.anim.design_bottom_sheet_slide_out)
-                //.replace(R.id.replaceFrame, fragment, fragment.javaClass.getSimpleName())
+                .replace(R.id.replaceFrame, fragment, fragment.javaClass.getSimpleName())
                 .addToBackStack(fragment.javaClass.getSimpleName())
                 .commit()
     }
@@ -57,4 +57,5 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
+
 }
