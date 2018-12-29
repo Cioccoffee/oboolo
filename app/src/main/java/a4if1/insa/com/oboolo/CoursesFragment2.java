@@ -1,7 +1,6 @@
 package a4if1.insa.com.oboolo;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +36,6 @@ public class CoursesFragment2 extends Fragment {
     mExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
 
     public CoursesFragment2() {
         // Required empty public constructor
@@ -69,66 +66,32 @@ public class CoursesFragment2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        expListView = (ExpandableListView) getView().findViewById(R.id.lv_courses);
-
-        // preparing list data
-        //prepareListData();
-
-        //listAdapter = new mExpandableListAdapter((CoursesFragment2)this, listDataHeader, listDataChild);
-        listAdapter = new mExpandableListAdapter();
-        listAdapter.setFragment(this);
-        listAdapter.setListDataHeader(listDataHeader);
-        listAdapter.setListDataChild(listDataChild);
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-
-        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-                //selected item
-                if(listDataHeader.get(groupPosition).equalsIgnoreCase("Catalog")){
-                    /*Intent i = new Intent(MainActivity.this, Departments.class);
-                    // sending data to new activity
-                    startActivity(i);*/
-                }
-
-                if(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).equalsIgnoreCase("Check Holds")){
-
-                    /*Intent i1 = new Intent(MainActivity.this,CheckHolds.class);
-                    startActivity(i1);*/
-                }
-                if(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).equalsIgnoreCase("Unreserve Books")){
-
-                    /*Intent i2 = new Intent(MainActivity.this,UnreserveBooks.class);
-                    startActivity(i2);*/
-                }
-                if(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).equalsIgnoreCase("Library Hours")){
-
-                    /*Intent i3 = new Intent(MainActivity.this,LibraryHours.class);
-                    startActivity(i3);*/
-                }
-                if(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition).equalsIgnoreCase("Contact Library")){
-
-                    /*Intent i4 = new Intent(MainActivity.this,ContactLibrary.class);
-                    startActivity(i4);*/
-                }
-                if(listDataHeader.get(groupPosition).equalsIgnoreCase("Logout")){
-                    /*Intent i5 = new Intent(MainActivity.this, Departments.class);
-                    startActivity(i5);*/
-                }
-                return false;
-            }
-        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_courses_fragment2, container, false);
+        View v = inflater.inflate(R.layout.fragment_courses, container, false); // R.layout.fragment_courses_fragment2
+        setUpViews(v);
+        return v;
+    }
+
+    private void setUpViews(View view){
+        expListView = (ExpandableListView) view.findViewById(R.id.lv_courses);
+
+
+        //This strings are what we'll see before expanding the listview
+        listDataHeader = new ArrayList<>();
+
+        listDataHeader.add("Physique");
+        listDataHeader.add("Informatique");
+        listDataHeader.add("Mathématiques");
+        listDataHeader.add("Thermodynamique");
+
+        // setting list adapter
+        listAdapter = new mExpandableListAdapter(getContext(), this, listDataHeader);
+        expListView.setAdapter(listAdapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -141,12 +104,12 @@ public class CoursesFragment2 extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        /*if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override
@@ -168,9 +131,5 @@ public class CoursesFragment2 extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public void prepareListData(){
-
     }
 }
