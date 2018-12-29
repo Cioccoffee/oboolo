@@ -50,6 +50,7 @@ class DayPlanningFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        //TODO : uncomment or do something, probably
         /*if (context is OnFragmentInteractionListener) {
             listener = context
         } else {

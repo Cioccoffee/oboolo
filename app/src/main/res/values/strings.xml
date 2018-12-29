@@ -38,6 +38,15 @@
     <string name="settings_early">Early bird</string>
     <string name="settings_late">Night owl</string>
 
+    <!--Strings related to courses and subjects-->
+    <string name="subject_affinity">Affinity</string>
+    <string name="subject_affinity_low">Not a fan</string>
+    <string name="subject_affinity_high">Best thing ever</string>
+    <string name="subject_work">Amount of required work</string>
+    <string name="subject_work_low">Few</string>
+    <string name="subject_work_high">Lot</string>
+    <string name="subject_target">Desired score</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button">Button</string>

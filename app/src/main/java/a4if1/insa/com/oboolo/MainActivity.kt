@@ -1,9 +1,12 @@
 package a4if1.insa.com.oboolo
 
+import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,11 +14,11 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_add_event -> {
-                //message.setText(R.string.title_add_event)
-                val fragment = AddEventFragment()
-                addFragment(fragment)
-                //return true
-                return@OnNavigationItemSelectedListener true
+                message.setText(R.string.title_add_event)
+                val intent = Intent(this, AddEventActivity::class.java)
+                intent.putExtra("action","create")
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener false //Impératif de laisser false
             }
             R.id.navigation_day_planning -> {
                 //message.setText(R.string.title_day_planning)
@@ -30,8 +33,8 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_courses -> {
-                //message.setText(R.string.title_courses)
-                val fragment = CoursesFragment()
+                message.visibility= View.GONE;
+                val fragment = CoursesFragment2()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -57,5 +60,4 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
-
 }
