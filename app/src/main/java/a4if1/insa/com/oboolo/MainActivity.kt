@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_day_planning -> {
                 //message.setText(R.string.title_day_planning)
-                val fragment = DayPlanningFragment()
+                val fragment = DayViewPlanningFragment()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }

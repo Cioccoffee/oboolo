@@ -2,9 +2,7 @@ package a4if1.insa.com.oboolo;
 
 import android.content.Context;
 import android.net.Uri;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,22 +14,19 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link WeekViewPlanningFragment.OnFragmentInteractionListener} interface
+ * {@link DayViewPlanningFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link WeekViewPlanningFragment#newInstance} factory method to
+ * Use the {@link DayViewPlanningFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WeekViewPlanningFragment extends Fragment {
+public class DayViewPlanningFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -45,9 +40,9 @@ public class WeekViewPlanningFragment extends Fragment {
     //private com.alamkanak.weekview.MonthLoader.MonthChangeListener mMonthChangeListener;
     private com.alamkanak.weekview.WeekView.EventLongPressListener mEventLongPressListener;
 
-    private OnFragmentInteractionListener mListener;
+    private DayViewPlanningFragment.OnFragmentInteractionListener mListener;
 
-    public WeekViewPlanningFragment() {
+    public DayViewPlanningFragment() {
         // Required empty public constructor
     }
 
@@ -57,11 +52,11 @@ public class WeekViewPlanningFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WeekViewPlanningFragment.
+     * @return A new instance of fragment DayViewPlanningFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static WeekViewPlanningFragment newInstance(String param1, String param2) {
-        WeekViewPlanningFragment fragment = new WeekViewPlanningFragment();
+    public static DayViewPlanningFragment newInstance(String param1, String param2) {
+        DayViewPlanningFragment fragment = new DayViewPlanningFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -87,7 +82,7 @@ public class WeekViewPlanningFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_week_view_planning, container, false);
+        return inflater.inflate(R.layout.fragment_day_view_planning, container, false);
     }
 
     @Override
@@ -102,7 +97,7 @@ public class WeekViewPlanningFragment extends Fragment {
             }
         };
         // Get a reference for the week view in the layout.
-        mWeekView = (WeekView) getView().findViewById(R.id.weekView);
+        mWeekView = (WeekView) getView().findViewById(R.id.weekViewDay);
 
         // Set an action when any event is clicked.
         mWeekView.setOnEventClickListener(mEventClickListener);
@@ -160,18 +155,18 @@ public class WeekViewPlanningFragment extends Fragment {
         Log.v("EVENTS","newMonth : "+newMonth+" | newYear : "+newYear);
         if(newYear == 2018 && newMonth == 12) {
             WeekViewEvent weekViewEvent1 =
-                    new WeekViewEvent(1, "eventName",
+                    new WeekViewEvent(1, "event1",
                             2018, 12, 28, 10, 32,
                             2018, 12, 28, 11, 0);
 //WeekViewEvent(long id, String name, int startYear, int startMonth, int startDay, int startHour, int startMinute, int endYear, int endMonth, int endDay, int endHour, int endMinute) {
 //
 //
             WeekViewEvent weekViewEvent2 =
-                    new WeekViewEvent(2, "eventName",
+                    new WeekViewEvent(2, "event2",
                             2018, 12, 28, 16, 0,
                             2018, 12, 28, 18, 0);
             WeekViewEvent weekViewEvent3 =
-                    new WeekViewEvent(3, "eventName",
+                    new WeekViewEvent(3, "event3",
                             2018, 12, 30, 10, 32,
                             2018, 12, 30, 11, 0);
 
