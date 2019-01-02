@@ -151,30 +151,10 @@ public class DayViewPlanningFragment extends Fragment {
     }
 
     public List<WeekViewEvent> getEvents(int newYear, int newMonth){
-        LinkedList<WeekViewEvent> weekViewEventLinkedList = new LinkedList<>();
+        EventList eventList = EventList.getInstance();
+        LinkedList<WeekViewEvent> weekViewEventLinkedList = eventList.getEvents(newYear, newMonth);
         Log.v("EVENTS","newMonth : "+newMonth+" | newYear : "+newYear);
-        if(newYear == 2018 && newMonth == 12) {
-            WeekViewEvent weekViewEvent1 =
-                    new WeekViewEvent(1, "event1",
-                            2018, 12, 28, 10, 32,
-                            2018, 12, 28, 11, 0);
-//WeekViewEvent(long id, String name, int startYear, int startMonth, int startDay, int startHour, int startMinute, int endYear, int endMonth, int endDay, int endHour, int endMinute) {
-//
-//
-            WeekViewEvent weekViewEvent2 =
-                    new WeekViewEvent(2, "event2",
-                            2018, 12, 28, 16, 0,
-                            2018, 12, 28, 18, 0);
-            WeekViewEvent weekViewEvent3 =
-                    new WeekViewEvent(3, "event3",
-                            2018, 12, 30, 10, 32,
-                            2018, 12, 30, 11, 0);
 
-
-            weekViewEventLinkedList.add(weekViewEvent1);
-            weekViewEventLinkedList.add(weekViewEvent2);
-            weekViewEventLinkedList.add(weekViewEvent3);
-        }
         return weekViewEventLinkedList;
     }
 }
