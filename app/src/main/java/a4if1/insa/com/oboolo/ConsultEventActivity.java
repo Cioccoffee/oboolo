@@ -33,19 +33,34 @@ public class ConsultEventActivity extends AppCompatActivity {
         EventList eventList = EventList.getInstance();
         WeekViewEvent event = eventList.getEvent((int)eventId);
 
+        int month = (event.getStartTime().get(Calendar.MONTH)+1);
+        String monthStr = "";
+        if(month < 10) monthStr+="0"+month;
+        else
+            monthStr+=month;
         String date = event.getStartTime().get(Calendar.DAY_OF_MONTH) +"/"+
-                (event.getStartTime().get(Calendar.MONTH)+1)+"/"+
+                monthStr+"/"+
                 event.getStartTime().get(Calendar.YEAR);
         TextView dateView = findViewById(R.id.consultDate);
         dateView.setText(date);
 
+        int mins = event.getStartTime().get(Calendar.MINUTE);
+        String minsStr = "";
+        if(mins < 10) minsStr+="0"+mins;
+        else
+            minsStr += mins;
         String startTime = event.getStartTime().get(Calendar.HOUR_OF_DAY)+":"+
-                event.getStartTime().get(Calendar.MINUTE);
+                minsStr;
         TextView startTimeView = findViewById(R.id.consultBeginning);
         startTimeView.setText(startTime);
 
+        int mins2 = event.getEndTime().get(Calendar.MINUTE);
+        String minsStr2 = "";
+        if(mins < 10) minsStr2+="0"+mins2;
+        else
+            minsStr2 += mins2;
         String endTime = event.getEndTime().get(Calendar.HOUR_OF_DAY)+":"+
-                event.getEndTime().get(Calendar.MINUTE);
+                minsStr2;
         TextView endTimeView = findViewById(R.id.consultEnd);
         endTimeView.setText(endTime);
 
