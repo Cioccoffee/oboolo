@@ -92,8 +92,11 @@ public class DayViewPlanningFragment extends Fragment {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 // Populate the week view with some events.
-                List<WeekViewEvent> events = getEvents(newYear, newMonth);
-                return events;
+                List<Event> events = getEvents(newYear, newMonth);
+                List<WeekViewEvent> weekViewEvents = new LinkedList<>();
+                for(int i = 0; i < events.size(); i++)
+                    weekViewEvents.add(events.get(i));
+                return weekViewEvents;
             }
         };
         // Get a reference for the week view in the layout.
@@ -150,11 +153,11 @@ public class DayViewPlanningFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public List<WeekViewEvent> getEvents(int newYear, int newMonth){
+    public List<Event> getEvents(int newYear, int newMonth){
         EventList eventList = EventList.getInstance();
-        LinkedList<WeekViewEvent> weekViewEventLinkedList = eventList.getEvents(newYear, newMonth);
+        LinkedList<Event> eventLinkedList = eventList.getEvents(newYear, newMonth);
         Log.v("EVENTS","newMonth : "+newMonth+" | newYear : "+newYear);
 
-        return weekViewEventLinkedList;
+        return eventLinkedList;
     }
 }

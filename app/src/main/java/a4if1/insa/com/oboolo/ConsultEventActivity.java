@@ -1,15 +1,25 @@
 package a4if1.insa.com.oboolo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.alamkanak.weekview.WeekViewEvent;
+
+import java.util.Calendar;
 
 public class ConsultEventActivity extends AppCompatActivity {
 
@@ -18,6 +28,47 @@ public class ConsultEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultevent);
         setUpButtons();
+        long eventId = getIntent().getLongExtra("eventId",1) - 1;
+        Log.v("EVENT_ID", ""+eventId);
+        EventList eventList = EventList.getInstance();
+        WeekViewEvent event = eventList.getEvent((int)eventId);
+
+        String date = event.getStartTime().get(Calendar.DAY_OF_MONTH) +"/"+
+                (event.getStartTime().get(Calendar.MONTH)+1)+"/"+
+                event.getStartTime().get(Calendar.YEAR);
+        TextView dateView = findViewById(R.id.consultDate);
+        dateView.setText(date);
+
+        String startTime = event.getStartTime().get(Calendar.HOUR_OF_DAY)+":"+
+                event.getStartTime().get(Calendar.MINUTE);
+        TextView startTimeView = findViewById(R.id.consultBeginning);
+        startTimeView.setText(startTime);
+
+        String endTime = event.getEndTime().get(Calendar.HOUR_OF_DAY)+":"+
+                event.getEndTime().get(Calendar.MINUTE);
+        TextView endTimeView = findViewById(R.id.consultEnd);
+        endTimeView.setText(endTime);
+
+
+        Event.Type type = ((Event) event).getType();
+        String typestr = "";
+        switch(type){
+            case Examen:
+                typestr = "Examen";
+                break;
+            case Revision:
+                typestr = "Session de révision";
+                break;
+        }
+        TextView typeView = findViewById(R.id.consultType);
+        typeView.setText(typestr);
+
+        String course = ((Event) event).getMatière();
+        TextView courseView = findViewById(R.id.consultCourses);
+        courseView.setText(course);
+
+
+
     }
 
     @Override
@@ -75,5 +126,23 @@ public class ConsultEventActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+
+    @Override
+    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+        //String date = getIntent().getStringExtra("date");
+        //TextView dateView = (TextView)findViewById(R.id.consultDate);
+        //dateView.setText(date);
+        return super.onCreateView(parent, name, context, attrs);
+    }
+
+    @Override
+    public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        String date = getIntent().getStringExtra("date");
+        Log.v("DATE",date);
+        TextView dateView = findViewById(R.id.consultDate);
+        dateView.setText(date);
     }
 }

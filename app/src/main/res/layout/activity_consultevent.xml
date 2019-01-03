@@ -20,7 +20,7 @@
         <TableRow
             android:layout_weight="1">
             <TextView
-                android:id="@+id/consultDateText"
+                android:id="@+id/consultDateLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -48,7 +48,7 @@
         <TableRow
             android:layout_weight="1">
             <TextView
-                android:id="@+id/consultBeginningText"
+                android:id="@+id/consultBeginningLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -68,7 +68,7 @@
                 android:textSize="@dimen/event_text_size"
                 android:id="@+id/consultBeginning" />
             <TextView
-                android:id="@+id/consultEndText"
+                android:id="@+id/consultEndLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
         <TableRow
             android:layout_weight="1">
             <TextView
-                android:id="@+id/consultTypeText"
+                android:id="@+id/consultTypeLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -115,7 +115,7 @@
         <TableRow
             android:layout_weight="1">
             <TextView
-                android:id="@+id/consultCoursesText"
+                android:id="@+id/consultCoursesLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -143,7 +143,7 @@
         <TableRow
             android:layout_weight="1">
             <TextView
-                android:id="@+id/consultFrequencyText"
+                android:id="@+id/consultFrequencyLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"

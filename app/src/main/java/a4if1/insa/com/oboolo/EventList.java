@@ -10,59 +10,69 @@ import java.util.List;
 
 public class EventList {
 
-    LinkedList<WeekViewEvent> eventList = new LinkedList<>();
+    LinkedList<Event> eventList = new LinkedList<>();
 
     //WeekViewEvent(long id, String name, int startYear, int startMonth, int startDay, int startHour, int startMinute, int endYear, int endMonth, int endDay, int endHour, int endMinute) {
 
     //IE
-    WeekViewEvent weekViewEvent1 =
-            new WeekViewEvent(1, "IE - Physique",
+    Event weekViewEvent1 =
+            new Event(1, "IE - Physique",
                     2019, 1, 7, 16, 0,
-                    2019, 1, 7, 17, 30);
-    WeekViewEvent weekViewEvent2 =
-            new WeekViewEvent(2, "IE - Thermodynamique",
+                    2019, 1, 7, 17, 30,
+                    Event.Type.Examen, "Physique");
+    Event weekViewEvent2 =
+            new Event(2, "IE - Thermodynamique",
                     2019, 1, 14, 16, 0,
-                    2019, 1, 14, 17, 30);
+                    2019, 1, 14, 17, 30,
+                    Event.Type.Examen, "Thermodynamique");
 
     //DM
-    WeekViewEvent weekViewEvent3 =
-            new WeekViewEvent(3, "DM - Mathématiques",
+    Event weekViewEvent3 =
+            new Event(3, "DM - Mathématiques",
                     2019, 1, 17, 10, 0,
-                    2019, 1, 17, 12, 0);
+                    2019, 1, 17, 12, 0,
+                    Event.Type.Examen, "Mathématiques");
 
     //Partiels
-    WeekViewEvent weekViewEvent4 =
-            new WeekViewEvent(4, "Partiel - Physique",
+    Event weekViewEvent4 =
+            new Event(4, "Partiel - Physique",
                     2019, 1, 28, 9, 0,
-                    2019, 1, 28, 12, 0);
-    WeekViewEvent weekViewEvent5 =
-            new WeekViewEvent(5, "Partiel - Mathématiques",
+                    2019, 1, 28, 12, 0,
+                    Event.Type.Examen, "Physique");
+    Event weekViewEvent5 =
+            new Event(5, "Partiel - Mathématiques",
                     2019, 1, 30, 9, 0,
-                    2019, 1, 30, 2, 0);
-    WeekViewEvent weekViewEvent6 =
-            new WeekViewEvent(6, "Partiel - Informatique",
+                    2019, 1, 30, 2, 0,
+                    Event.Type.Examen, "Mathématiques");
+    Event weekViewEvent6 =
+            new Event(6, "Partiel - Informatique",
                     2019, 1, 29, 14, 0,
-                    2019, 1, 29, 16, 0);
-    WeekViewEvent weekViewEvent7 =
-            new WeekViewEvent(7, "Partiel - Thermodynamique",
+                    2019, 1, 29, 16, 0,
+                    Event.Type.Examen, "Informatique");
+    Event weekViewEvent7 =
+            new Event(7, "Partiel - Thermodynamique",
                     2019, 1, 29, 10, 0,
-                    2019, 1, 29, 12, 0);
+                    2019, 1, 29, 12, 0,
+                    Event.Type.Examen, "Thermodynamique");
 
     //Révisions
-    WeekViewEvent weekViewEvent8 =
-            new WeekViewEvent(8, "Révision - Thermodynamique",
+    Event weekViewEvent8 =
+            new Event(8, "Révision - Thermodynamique",
                     2019, 1, 9, 20, 0,
-                    2019, 1, 9, 22, 0);
-    WeekViewEvent weekViewEvent9 =
-            new WeekViewEvent(9, "Révision - Thermodynamique",
+                    2019, 1, 9, 22, 0,
+                    Event.Type.Revision, "Thermodynamique");
+    Event weekViewEvent9 =
+            new Event(9, "Révision - Thermodynamique",
                     2019, 1, 12, 14, 0,
-                    2019, 1, 12, 17, 0);
-    WeekViewEvent weekViewEvent10 =
-            new WeekViewEvent(10, "Révision - Thermodynamique",
+                    2019, 1, 12, 17, 0,
+                    Event.Type.Revision, "Thermodynamique");
+    Event weekViewEvent10 =
+            new Event(10, "Révision - Thermodynamique",
                     2019, 1, 13, 14, 0,
-                    2019, 1, 13, 17, 0);
+                    2019, 1, 13, 17, 0,
+                    Event.Type.Revision, "Thermodynamique");
 
-    
+
 
 
     private EventList() {
@@ -73,6 +83,9 @@ public class EventList {
         eventList.add(weekViewEvent5);
         eventList.add(weekViewEvent6);
         eventList.add(weekViewEvent7);
+        eventList.add(weekViewEvent8);
+        eventList.add(weekViewEvent9);
+        eventList.add(weekViewEvent10);
     }
 
     private static EventList INSTANCE = new EventList();
@@ -81,20 +94,24 @@ public class EventList {
         return INSTANCE;
     }
 
-    public LinkedList<WeekViewEvent> getList(){
+    public LinkedList<Event> getList(){
         return eventList;
     }
 
-    public LinkedList<WeekViewEvent> getEvents(int year, int month){
-        LinkedList<WeekViewEvent> result = new LinkedList<>();
+    public LinkedList<Event> getEvents(int year, int month){
+        LinkedList<Event> result = new LinkedList<>();
 
         for(int i = 0; i < eventList.size(); i++){
-            WeekViewEvent weekViewEvent = eventList.get(i);
-            Log.v("EVENTS","Month : "+weekViewEvent.getStartTime().get(Calendar.MONTH)+" | Year : "+weekViewEvent.getStartTime().get(Calendar.YEAR));
-            if( weekViewEvent.getStartTime().get(Calendar.YEAR) == year &&
-                    weekViewEvent.getStartTime().get(Calendar.MONTH) == month-1)
-                result.add(weekViewEvent);
+            Event event = eventList.get(i);
+            Log.v("EVENTS","Month : "+event.getStartTime().get(Calendar.MONTH)+" | Year : "+event.getStartTime().get(Calendar.YEAR));
+            if( event.getStartTime().get(Calendar.YEAR) == year &&
+                    event.getStartTime().get(Calendar.MONTH) == month-1)
+                result.add(event);
         }
         return result;
+    }
+
+    public Event getEvent(int i){
+        return eventList.get(i);
     }
 }

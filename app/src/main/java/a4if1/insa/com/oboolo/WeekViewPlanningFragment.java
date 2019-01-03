@@ -1,6 +1,8 @@
 package a4if1.insa.com.oboolo;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -41,7 +44,7 @@ public class WeekViewPlanningFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private WeekView mWeekView;
-    private com.alamkanak.weekview.WeekView.EventClickListener mEventClickListener;
+    //private com.alamkanak.weekview.WeekView.EventClickListener mEventClickListener;
     //private com.alamkanak.weekview.MonthLoader.MonthChangeListener mMonthChangeListener;
     private com.alamkanak.weekview.WeekView.EventLongPressListener mEventLongPressListener;
 
@@ -97,10 +100,26 @@ public class WeekViewPlanningFragment extends Fragment {
             @Override
             public List<WeekViewEvent> onMonthChange(int newYear, int newMonth) {
                 // Populate the week view with some events.
-                List<WeekViewEvent> events = getEvents(newYear, newMonth);
-                return events;
+                List<Event> events = getEvents(newYear, newMonth);
+                List<WeekViewEvent> weekViewEvents = new LinkedList<>();
+                for(int i = 0; i < events.size(); i++)
+                    weekViewEvents.add(events.get(i));
+                return weekViewEvents;
             }
         };
+
+        WeekView.EventClickListener mEventClickListener = new WeekView.EventClickListener() {
+            @Override
+            public void onEventClick(WeekViewEvent event, RectF eventRect) {
+                Intent intent = new Intent(getContext(), ConsultEventActivity.class);
+                /**/
+                Log.v("EVENT_ID before", ""+event.getId());
+                intent.putExtra("eventId", event.getId());
+                //intent.putExtra("action", "edit");
+                startActivity(intent);
+            }
+        };
+
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) getView().findViewById(R.id.weekView);
 
@@ -155,9 +174,9 @@ public class WeekViewPlanningFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public List<WeekViewEvent> getEvents(int newYear, int newMonth){
+    public List<Event> getEvents(int newYear, int newMonth){
         EventList eventList = EventList.getInstance();
-        LinkedList<WeekViewEvent> weekViewEventLinkedList = eventList.getEvents(newYear, newMonth);
+        LinkedList<Event> weekViewEventLinkedList = eventList.getEvents(newYear, newMonth);
         Log.v("EVENTS","newMonth : "+newMonth+" | newYear : "+newYear);
 
         return weekViewEventLinkedList;
