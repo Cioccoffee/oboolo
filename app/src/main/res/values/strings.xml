@@ -23,7 +23,7 @@
     <string name="add_event">Add an event</string>
     <string name="edit_event">Edit event</string>
     <string name="event_date">Date</string>
-    <string name="event_beginning">Time</string>
+    <string name="event_beginning">From</string>
     <string name="event_type">Type</string>
     <string name="event_subject">Subject</string>
     <string name="event_frequency">Frequency</string>
