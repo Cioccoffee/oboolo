@@ -1,6 +1,5 @@
 package a4if1.insa.com.oboolo;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -68,7 +67,7 @@ public class ConsultEventActivity extends AppCompatActivity {
         Event.Type type = ((Event) event).getType();
         String typestr = "";
         switch(type){
-            case Examen:
+            case Exam:
                 typestr = "Examen";
                 break;
             case Revision:
@@ -78,7 +77,7 @@ public class ConsultEventActivity extends AppCompatActivity {
         TextView typeView = findViewById(R.id.consultType);
         typeView.setText(typestr);
 
-        String course = ((Event) event).getMatière();
+        String course = ((Event) event).getCourse();
         TextView courseView = findViewById(R.id.consultCourses);
         courseView.setText(course);
 

@@ -2,11 +2,8 @@ package a4if1.insa.com.oboolo;
 
 import android.util.Log;
 
-import com.alamkanak.weekview.WeekViewEvent;
-
 import java.util.Calendar;
 import java.util.LinkedList;
-import java.util.List;
 
 public class EventList {
 
@@ -19,41 +16,41 @@ public class EventList {
             new Event(1, "IE - Physique",
                     2019, 1, 7, 16, 0,
                     2019, 1, 7, 17, 30,
-                    Event.Type.Examen, "Physique");
+                    Event.Type.Exam, "Physique");
     Event weekViewEvent2 =
             new Event(2, "IE - Thermodynamique",
                     2019, 1, 14, 16, 0,
                     2019, 1, 14, 17, 30,
-                    Event.Type.Examen, "Thermodynamique");
+                    Event.Type.Exam, "Thermodynamique");
 
     //DM
     Event weekViewEvent3 =
             new Event(3, "DM - Mathématiques",
                     2019, 1, 17, 10, 0,
                     2019, 1, 17, 12, 0,
-                    Event.Type.Examen, "Mathématiques");
+                    Event.Type.Exam, "Mathématiques");
 
     //Partiels
     Event weekViewEvent4 =
             new Event(4, "Partiel - Physique",
                     2019, 1, 28, 9, 0,
                     2019, 1, 28, 12, 0,
-                    Event.Type.Examen, "Physique");
+                    Event.Type.Exam, "Physique");
     Event weekViewEvent5 =
             new Event(5, "Partiel - Mathématiques",
                     2019, 1, 30, 9, 0,
                     2019, 1, 30, 2, 0,
-                    Event.Type.Examen, "Mathématiques");
+                    Event.Type.Exam, "Mathématiques");
     Event weekViewEvent6 =
             new Event(6, "Partiel - Informatique",
                     2019, 1, 29, 14, 0,
                     2019, 1, 29, 16, 0,
-                    Event.Type.Examen, "Informatique");
+                    Event.Type.Exam, "Informatique");
     Event weekViewEvent7 =
             new Event(7, "Partiel - Thermodynamique",
                     2019, 1, 29, 10, 0,
                     2019, 1, 29, 12, 0,
-                    Event.Type.Examen, "Thermodynamique");
+                    Event.Type.Exam, "Thermodynamique");
 
     //Révisions
     Event weekViewEvent8 =
