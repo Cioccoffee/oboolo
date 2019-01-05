@@ -62,20 +62,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        navigation.setSelectedItemId(R.id.navigation_day_planning)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.top_menu_return, menu)
+        inflater.inflate(R.menu.top_menu_default, menu)
         menu.getItem(0).setOnMenuItemClickListener {
-            finish()
-            true
-        }
-        menu.getItem(1).setOnMenuItemClickListener {
             Toast.makeText(applicationContext, "Updated", Toast.LENGTH_SHORT)
             true
         }
-        menu.getItem(2).setOnMenuItemClickListener {
+        menu.getItem(1).setOnMenuItemClickListener {
             val intent = Intent(this@MainActivity, SettingsActivity::class.java)
             startActivity(intent)
             true

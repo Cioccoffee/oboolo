@@ -267,8 +267,8 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
             showProgress(false)
             intent=Intent(applicationContext, MainActivity::class.java)
             //intent=Intent(applicationContext, ConsultEventActivity::class.java)
-            intent.putExtra("action", "edit");
-            startActivity(intent)//FIXME : to change
+            intent.putExtra("action", "edit")
+            startActivity(intent)
             if (success!!) {
                 finish()
             } else {

@@ -1,6 +1,8 @@
 package a4if1.insa.com.oboolo;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
