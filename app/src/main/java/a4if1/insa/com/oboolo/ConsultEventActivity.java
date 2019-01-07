@@ -55,7 +55,7 @@ public class ConsultEventActivity extends AppCompatActivity {
 
         int mins2 = event.getEndTime().get(Calendar.MINUTE);
         String minsStr2 = "";
-        if(mins < 10) minsStr2+="0"+mins2;
+        if(mins2 < 10) minsStr2+="0"+mins2;
         else
             minsStr2 += mins2;
         String endTime = event.getEndTime().get(Calendar.HOUR_OF_DAY)+":"+

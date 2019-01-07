@@ -38,7 +38,7 @@ public class DayViewPlanningFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private WeekView mWeekView;
-    private com.alamkanak.weekview.WeekView.EventClickListener mEventClickListener;
+    //private com.alamkanak.weekview.WeekView.EventClickListener mEventClickListener;
     //private com.alamkanak.weekview.MonthLoader.MonthChangeListener mMonthChangeListener;
     private com.alamkanak.weekview.WeekView.EventLongPressListener mEventLongPressListener;
 
@@ -99,6 +99,16 @@ public class DayViewPlanningFragment extends Fragment {
                 for(int i = 0; i < events.size(); i++)
                     weekViewEvents.add(events.get(i));
                 return weekViewEvents;
+            }
+        };
+
+        WeekView.EventClickListener mEventClickListener = new WeekView.EventClickListener() {
+            @Override
+            public void onEventClick(WeekViewEvent event, RectF eventRect) {
+                Intent intent = new Intent(getContext(), ConsultEventActivity.class);
+                Log.v("EVENT_ID before", ""+event.getId());
+                intent.putExtra("eventId", event.getId());
+                startActivity(intent);
             }
         };
         // Get a reference for the week view in the layout.

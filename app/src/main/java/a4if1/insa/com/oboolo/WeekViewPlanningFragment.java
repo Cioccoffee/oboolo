@@ -112,10 +112,8 @@ public class WeekViewPlanningFragment extends Fragment {
             @Override
             public void onEventClick(WeekViewEvent event, RectF eventRect) {
                 Intent intent = new Intent(getContext(), ConsultEventActivity.class);
-                /**/
                 Log.v("EVENT_ID before", ""+event.getId());
                 intent.putExtra("eventId", event.getId());
-                //intent.putExtra("action", "edit");
                 startActivity(intent);
             }
         };
