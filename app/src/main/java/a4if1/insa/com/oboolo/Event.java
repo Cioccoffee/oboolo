@@ -18,22 +18,25 @@ public class Event extends WeekViewEvent {
         this.course = course;
     }
 
-    public Event(long id, String name, int startYear, int startMonth, int startDay, int startHour, int startMinute, int endYear, int endMonth, int endDay, int endHour, int endMinute, Type type, String course) {
+    public Event(long id, String name, int startYear, int startMonth, int startDay, int startHour, int startMinute, int endYear, int endMonth, int endDay, int endHour, int endMinute, Type type, String course, Frequency frequency) {
         super(id, name, startYear, startMonth, startDay, startHour, startMinute, endYear, endMonth, endDay, endHour, endMinute);
         this.type = type;
         this.course = course;
+        this.frequency = frequency;
     }
 
-    public Event(long id, String name, String location, Calendar startTime, Calendar endTime, Type type, String course) {
+    public Event(long id, String name, String location, Calendar startTime, Calendar endTime, Type type, String course, Frequency frequency) {
         super(id, name, location, startTime, endTime);
         this.type = type;
         this.course = course;
+        this.frequency = frequency;
     }
 
-    public Event(long id, String name, Calendar startTime, Calendar endTime, Type type, String course) {
+    public Event(long id, String name, Calendar startTime, Calendar endTime, Type type, String course, Frequency frequency) {
         super(id, name, startTime, endTime);
         this.type = type;
         this.course = course;
+        this.frequency = frequency;
     }
 
     public Type getType() {

@@ -81,6 +81,24 @@ public class ConsultEventActivity extends AppCompatActivity {
         TextView courseView = findViewById(R.id.consultCourses);
         courseView.setText(course);
 
+        Event.Frequency frequency = ((Event) event).getFrequency();
+        String frequencystr = "";
+        switch(frequency){
+            case Once:
+                frequencystr += "Une fois";
+                break;
+            case Day:
+                frequencystr += "Chaque jour";
+                break;
+            case Week:
+                frequencystr += "Chaque semaine";
+                break;
+            case Month:
+                frequencystr += "Chaque mois";
+                break;
+        }
+        TextView frequencyView = findViewById(R.id.consultFrequency);
+        frequencyView.setText(frequencystr);
 
 
     }
