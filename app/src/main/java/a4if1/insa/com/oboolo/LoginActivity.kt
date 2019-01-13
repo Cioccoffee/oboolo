@@ -252,25 +252,27 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
                 return false
             }
 
-            return DUMMY_CREDENTIALS
+            if(mEmail == "martin.matin" && mPassword == "helloworld") return true
+            else if(mEmail == "serge.gainsbourg" && mPassword == "birkin") return true
+            else if(mEmail == "tom.jedusor" && mPassword == "serpentard") return true
+            else return false
+            /*return DUMMY_CREDENTIALS
                     .map { it.split(":") }
                     .firstOrNull { it[0] == mEmail }
                     ?.let {
                         // Account exists, return true if the password matches.
                         it[1] == mPassword
                     }
-                    ?: true
+                    ?: true*/
         }
 
         override fun onPostExecute(success: Boolean?) {
             mAuthTask = null
             showProgress(false)
-            intent=Intent(applicationContext, MainActivity::class.java)
-            //intent=Intent(applicationContext, ConsultEventActivity::class.java)
-            intent.putExtra("action", "edit")
-            startActivity(intent)
             if (success!!) {
-                finish()
+                intent=Intent(applicationContext, MainActivity::class.java)
+                startActivity(intent)
+                //finish()
             } else {
                 password.error = getString(R.string.error_incorrect_password)
                 password.requestFocus()
