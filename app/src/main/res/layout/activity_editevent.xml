@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 
-    <!--TODO : ajouter petite barre de style-->
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,7 +38,7 @@
                 android:gravity="end"
                 />
             <Space
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:layout_width="0dp"/>
 
             <EditText
@@ -70,6 +69,12 @@
                 android:gravity="end"
                 android:layout_marginRight="5dp"
                 />
+
+
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
 
 
             <EditText
@@ -120,7 +125,7 @@
                 />
             <Space
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:layout_height="match_parent" />
 
             <Spinner
@@ -150,7 +155,7 @@
                 />
             <Space
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:layout_height="match_parent" />
 
             <Spinner
@@ -179,7 +184,7 @@
                 />
             <Space
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:layout_height="match_parent" />
 
             <Spinner

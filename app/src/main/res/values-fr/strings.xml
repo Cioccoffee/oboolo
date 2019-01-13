@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Oboolo</string>
+    <string name="title_add_event">Ajouter un créneau</string>
+    <string name="title_day_planning">Jour</string>
+    <string name="title_week_planning">Semaine</string>
+    <string name="title_courses">Matières</string>
+    <string name="title_activity_login">Se connecter</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Connexion</string>
+    <string name="action_sign_in_short">Connexion</string>
+    <string name="error_invalid_email">Cet email est invalide</string>
+    <string name="error_invalid_password">Ce mot de passe est trop court</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Ce champ est nécessaire</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!--Strings related to event edition-->
+    <string name="add_event">Ajouter un créneau</string>
+    <string name="edit_event">Éditer le créneau</string>
+    <string name="event_date">Date</string>
+    <string name="event_beginning">De</string>
+    <string name="event_type">Type</string>
+    <string name="event_subject">Matière</string>
+    <string name="event_frequency">Fréquence</string>
+    <string name="event_validate">Confirmer</string>
+
+    <!--Strings related to settings -->
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_notification">Notifications</string>
+    <string name="settings_beginAt">Démarrer à</string>
+    <string name="settings_endAt">Finir à</string>
+    <string name="settings_profile">Je suis plutôt</string>
+    <string name="settings_early">Lève-tôt</string>
+    <string name="settings_late">Couche-tard</string>
+
+    <!--Strings related to courses and subjects-->
+    <string name="subject_affinity">Affinité</string>
+    <string name="subject_affinity_low">Pas fan</string>
+    <string name="subject_affinity_high">Meilleure matière !</string>
+    <string name="subject_work">Quantité de travail</string>
+    <string name="subject_work_low">Peu</string>
+    <string name="subject_work_high">Beaucoup</string>
+    <string name="subject_target">Note souhaitée</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Fragment vide</string>
+    <string name="button">Bouton</string>
+</resources>

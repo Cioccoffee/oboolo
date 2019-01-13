@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">oboolo</string>
-    <string name="title_add_event">Ajouter un évènement</string>
-    <string name="title_day_planning">Planning jour</string>
-    <string name="title_week_planning">Planning semaine</string>
-    <string name="title_courses">Matières</string>
+    <string name="app_name">Oboolo</string>
+    <string name="title_add_event">Add an event</string>
+    <string name="title_day_planning">Day Planning</string>
+    <string name="title_week_planning">Week Planning</string>
+    <string name="title_courses">Subjects</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

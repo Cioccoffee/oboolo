@@ -69,10 +69,14 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.top_menu_default, menu)
         menu.getItem(0).setOnMenuItemClickListener {
-            Toast.makeText(applicationContext, "Updated", Toast.LENGTH_SHORT)
+            finish()
             true
         }
         menu.getItem(1).setOnMenuItemClickListener {
+            Toast.makeText(applicationContext, "Updated", Toast.LENGTH_SHORT)
+            true
+        }
+        menu.getItem(2).setOnMenuItemClickListener {
             val intent = Intent(this@MainActivity, SettingsActivity::class.java)
             startActivity(intent)
             true

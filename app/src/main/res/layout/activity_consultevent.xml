@@ -23,7 +23,7 @@
                 android:id="@+id/consultDateLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="@string/event_date"
                 android:textSize="@dimen/event_text_size"
                 android:gravity="end"
@@ -35,12 +35,12 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="dd/mm/yyyy"
                 android:textSize="@dimen/event_text_size"
                 android:id="@+id/consultDate"/>
             <Space
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
@@ -51,7 +51,7 @@
                 android:id="@+id/consultBeginningLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="8"
                 android:text="@string/event_beginning"
                 android:textSize="@dimen/event_text_size"
                 android:gravity="end"
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="8:00"
                 android:textSize="@dimen/event_text_size"
                 android:id="@+id/consultBeginning" />
@@ -71,7 +71,7 @@
                 android:id="@+id/consultEndLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="/"
                 android:textSize="@dimen/event_text_size"
                 />
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="10:00"
                 android:textSize="@dimen/event_text_size"
                 android:id="@+id/consultEnd" />
@@ -90,7 +90,7 @@
                 android:id="@+id/consultTypeLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Type"
                 android:textSize="@dimen/event_text_size"
                 android:gravity="end"
@@ -104,11 +104,11 @@
                 android:id="@+id/consultType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Examen"
                 android:textSize="@dimen/event_text_size"/>
             <Space
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
         </TableRow>
@@ -118,7 +118,7 @@
                 android:id="@+id/consultCoursesLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Matière"
                 android:textSize="@dimen/event_text_size"
                 android:gravity="end"
@@ -132,11 +132,11 @@
                 android:id="@+id/consultCourses"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Maths"
                 android:textSize="@dimen/event_text_size"/>
             <Space
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
         </TableRow>
@@ -146,7 +146,7 @@
                 android:id="@+id/consultFrequencyLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Fréquence"
                 android:textSize="@dimen/event_text_size"
                 android:gravity="end"
@@ -160,12 +160,12 @@
                 android:id="@+id/consultFrequency"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:text="Une seule fois"
                 android:textSize="@dimen/event_text_size"/>
 
             <Space
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
         </TableRow>
