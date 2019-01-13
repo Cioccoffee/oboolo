@@ -269,7 +269,6 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         override fun onPostExecute(success: Boolean?) {
             mAuthTask = null
             showProgress(false)
-
             if (success!!) {
                 intent=Intent(applicationContext, MainActivity::class.java)
                 startActivity(intent)
